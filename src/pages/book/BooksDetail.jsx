@@ -3,9 +3,9 @@ import { useParams, useNavigate } from "react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import api from "@/api/axiosApi";
 import { authStore } from "@/stores/authStore";
-import styles from "./BooksDetail.module.scss";
 import QuantityInput from "@/components/ui/QuantityInput";
 import { FaCartShopping } from "react-icons/fa6";
+import styles from "./BooksDetail.module.scss";
 
 function BooksDetail() {
   const { bookId } = useParams();
@@ -98,7 +98,7 @@ function BooksDetail() {
       return;
     }
 
-    //  주문 진행
+    // 주문 진행
     navigate("/order", {
       state: {
         bookId: book.bookId,
@@ -122,22 +122,33 @@ function BooksDetail() {
         <div className={styles.info}>
           <h2>{book.title}</h2>
           <ul className={styles.list}>
-            <li>저자: {book.author}</li>
-            <li>가격: {book.price.toLocaleString()}원</li>
             <li>
-              재고: <strong>{book.stock}</strong>개 남음
+              <strong class={styles.label}>저자</strong>
+              {book.author}
             </li>
             <li>
-              수량:
+              <strong class={styles.label}>도서 가격</strong>
+              {book.price.toLocaleString()}원
+            </li>
+            <li>
+              <strong class={styles.label}>재고</strong>
+              {book.stock}개 남음
+            </li>
+            <li>
+              <strong class={styles.label}>수량</strong>
               <QuantityInput
                 quantity={quantity}
                 stock={book.stock}
                 onChange={setQuantity}
               />
             </li>
+            <li className={styles.price}>
+              <strong class={styles.label}>주문 금액</strong>
+              {(book.price * quantity).toLocaleString()}원
+            </li>
           </ul>
 
-          <div className={`btnWrap ${styles.detailBtnWrap}`}>
+          <div className="btnWrap">
             {book.stock > 0 ? (
               <>
                 <button

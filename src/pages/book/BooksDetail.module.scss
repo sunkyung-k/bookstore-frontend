@@ -24,11 +24,16 @@
     }
   }
 
-  /* 설명문 */
   > p {
     font-size: font("md");
     color: get-color("gray-700");
     line-height: 1.8;
+  }
+
+  :global(.btnWrap) {
+    border-top: 1px solid get-color("gray-300");
+    padding-top: space("md");
+    margin-top: space("md");
   }
 }
 
@@ -79,42 +84,36 @@
   .list {
     display: flex;
     flex-direction: column;
-    gap: space("md");
     margin-top: space("sm");
 
     li {
       display: flex;
       align-items: center;
-      gap: space("sm");
+      gap: space("xs");
       font-size: font("md");
       color: get-color("gray-600");
       line-height: 1.5;
+      padding: space("md") 0;
+      border-top: 1px dashed get-color("gray-200");
 
-      span.label {
+      &:first-of-type {
+        border-top: 0;
+      }
+
+      .label {
         color: get-color("gray-700");
         font-weight: 600;
-      }
 
-      &:not(:last-child) {
-        margin-bottom: 2px;
+        &:after {
+          content: ":";
+        }
       }
     }
-  }
 
-  .price {
-    font-size: font("xl");
-    font-weight: 700;
-    color: get-color("primary");
+    .price {
+      font-size: font("xl");
+      font-weight: 700;
+      color: get-color("primary");
+    }
   }
-
-  .stock {
-    font-size: font("sm");
-    color: get-color("gray-500");
-  }
-}
-
-.detailBtnWrap {
-  border-top: 1px solid get-color("gray-300");
-  padding-top: space("md");
-  margin-top: space("md");
 }
