@@ -5,7 +5,6 @@ import { FaBookOpen, FaCartShopping } from "react-icons/fa6";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { authStore } from "@/stores/authStore";
 import api from "@/api/axiosApi";
-import styles from "./Gnb.module.scss";
 
 function Gnb() {
   const isAuthenticated = authStore((state) => state.isAuthenticated());
@@ -33,20 +32,20 @@ function Gnb() {
   };
 
   return (
-    <nav className={styles.gnb}>
-      <h1 className={styles.logo}>
+    <nav className="gnb">
+      <h1 className="logo">
         <NavLink to="/books">
           <FaBookOpen />
           온라인서점
         </NavLink>
       </h1>
 
-      <div className={styles.utill}>
-        <div className={styles.menu}>
+      <div className="utill">
+        <div className="menu">
           <NavLink to="/cart">
             <FaCartShopping size="20" />
             {isAuthenticated && (
-              <span className={styles.cnt}>{isLoading ? "…" : cartCount}</span>
+              <span className="cnt">{isLoading ? "…" : cartCount}</span>
             )}
           </NavLink>
           <NavLink to="/mypage">
@@ -54,8 +53,8 @@ function Gnb() {
           </NavLink>
         </div>
 
-        <div className={styles.userMenuBox}>
-          <div className={styles.userMenu}>
+        <div className="userMenuBox">
+          <div className="userMenu">
             <span>{userId}님, 환영합니다.</span>
             <button
               type="button"

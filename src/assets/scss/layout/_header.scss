@@ -16,13 +16,11 @@
   justify-content: space-between;
   transition: all 0.25s ease;
 
-  /* ✅ 스크롤 시 그림자 강조 (JS로 .scrolled 클래스 추가 시) */
   &.scrolled {
     box-shadow: 0 3px 12px rgba(get-color("dark"), 0.08);
     border-color: get-color("gray-300");
   }
 
-  /* ✅ 내부 컨테이너 (gnb 감싸는 구조) */
   .inner {
     width: 100%;
     max-width: 1280px;
