@@ -1,0 +1,12 @@
+@use "@/assets/scss/utils" as *;
+
+.sec-tit {
+  font-size: font("xxl");
+  font-weight: 700;
+  color: get-color("dark");
+  margin-bottom: space("md");
+
+  & + .sec-cont {
+    margin-top: space("lg");
+  }
+}

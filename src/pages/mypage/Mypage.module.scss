@@ -1,0 +1,158 @@
+@use "@/assets/scss/utils" as *;
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: space("xl");
+  padding: space("xl") space("2xl");
+  margin-bottom: space("xxl");
+  border-radius: radius("xl");
+  background-color: get-color("white");
+  border: 1px solid get-color("gray-200");
+  box-shadow: 0 4px 12px rgba(get-color("dark"), 0.06);
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: space("lg");
+
+    dt {
+      font-size: font("lg");
+      color: get-color("gray-600");
+      font-weight: 600;
+      letter-spacing: -0.3px;
+
+      &:after {
+        content: ":";
+        margin-left: 4px;
+        color: get-color("gray-400");
+      }
+    }
+
+    dd {
+      font-size: font("xl");
+      font-weight: 800;
+      color: get-color("primary");
+      text-shadow: 0 1px 1px rgba(get-color("dark"), 0.1);
+      letter-spacing: -0.2px;
+      margin-right: space("xl");
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.orderList {
+  display: flex;
+  flex-direction: column;
+  gap: space("md");
+  margin-top: space("lg");
+}
+
+.orderBox {
+  background-color: get-color("white");
+  border: 1px solid get-color("gray-300");
+  border-radius: radius("lg");
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.orderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: get-color("gray-100");
+  border-bottom: 1px solid get-color("gray-300");
+  padding: space("md") space("lg");
+
+  .orderInfo {
+    display: flex;
+    align-items: center;
+    gap: space("lg");
+    font-size: font("md");
+    color: get-color("gray-600");
+
+    .orderId {
+      font-weight: 600;
+      color: get-color("dark");
+    }
+
+    .price {
+      font-weight: 700;
+      color: get-color("primary");
+    }
+  }
+}
+
+.orderBooks {
+  list-style: none;
+  margin: 0;
+  padding: space("md") space("lg");
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    font-size: font("md");
+    color: get-color("gray-600");
+
+    span:first-child {
+      color: get-color("dark");
+      font-weight: 500;
+    }
+  }
+}
+
+.btnCell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: space("xs");
+}
+
+.soldOut {
+  color: get-color("danger");
+  margin-left: 5px;
+  font-size: font("sm");
+  font-weight: 600;
+}
+
+@media (max-width: bp("md")) {
+  .profile {
+    flex-direction: column;
+    gap: space("md");
+    padding: space("lg");
+    border-radius: radius("lg");
+
+    .info {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: space("sm");
+
+      dt {
+        font-size: font("md");
+      }
+
+      dd {
+        font-size: font("lg");
+      }
+    }
+  }
+
+  .tabs {
+    button {
+      flex: 1;
+    }
+  }
+}

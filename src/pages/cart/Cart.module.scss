@@ -1,0 +1,27 @@
+.qBox {
+  display: inline-flex;
+  flex-direction: column;
+  gap: space("xs");
+
+  label {
+    font-size: font("sm");
+    color: get-color("gray-700");
+    font-weight: 500;
+  }
+}
+
+.soldOutRow {
+  td:not(:last-child) {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  p {
+    color: get-color("gray-400");
+  }
+
+  input[type="checkbox"] {
+    cursor: not-allowed;
+    accent-color: get-color("gray-400");
+  }
+}

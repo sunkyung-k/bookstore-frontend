@@ -1,0 +1,191 @@
+@use "@/assets/scss/utils" as *;
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: get-color("white");
+  border-radius: radius("lg");
+  overflow: hidden;
+
+  tr {
+    border-bottom: 1px solid get-color("gray-300");
+    transition: background 0.2s ease;
+
+    &:hover {
+      background-color: get-color("gray-50");
+    }
+  }
+
+  th {
+    padding: space("md");
+    font-size: font("md");
+    font-weight: 700;
+    color: get-color("gray-700");
+    background-color: get-color("gray-100");
+    text-align: center;
+  }
+
+  td {
+    text-align: center;
+    color: get-color("gray-700");
+    font-size: font("md");
+    padding: space("md") space("lg");
+    background-color: get-color("white");
+  }
+
+  img {
+    aspect-ratio: 458 / 717;
+    width: 60px;
+    object-fit: cover;
+    border-radius: radius("sm");
+  }
+
+  .bookInfo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: space("md");
+
+    span {
+      font-weight: 600;
+      color: get-color("dark");
+      letter-spacing: -0.2px;
+      font-size: font("md");
+    }
+  }
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: get-color("gray-50");
+  border-radius: radius("lg");
+  padding: space("xl") space("xxl");
+  margin-top: space("xl");
+  border: 1px solid get-color("gray-300");
+
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: space("lg");
+    margin-bottom: space("md");
+
+    p {
+      font-size: font("lg");
+      color: get-color("gray-600");
+      font-weight: 500;
+    }
+
+    strong {
+      font-size: font("xxl");
+      font-weight: 800;
+      color: get-color("dark");
+    }
+  }
+
+  & > div:first-child {
+    border-bottom: 1px dashed get-color("gray-300");
+    padding-bottom: space("md");
+    margin-bottom: space("md");
+  }
+
+  .warning {
+    color: get-color("danger");
+    font-size: font("sm");
+    font-weight: 600;
+    margin-top: space("sm");
+    background-color: rgba(get-color("danger"), 0.08);
+    padding: space("xs") space("sm");
+    border-radius: radius("sm");
+  }
+}
+
+@media (max-width: bp("md")) {
+  .table {
+    display: block;
+    border: none;
+    overflow: inherit;
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      display: block;
+      width: 100%;
+    }
+
+    tr {
+      display: block;
+      border: 1px solid get-color("gray-300");
+      border-radius: radius("md");
+      margin-bottom: space("md");
+      padding: space("md");
+      background-color: get-color("white");
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      padding: space("xs") 0;
+      font-size: font("sm");
+      border: none;
+      color: get-color("gray-700");
+
+      &::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: get-color("gray-500");
+      }
+
+      img {
+        width: 70px;
+        height: auto;
+      }
+    }
+
+    .bookInfo {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: space("xs");
+
+      span {
+        font-size: font("md");
+        color: get-color("dark");
+      }
+    }
+  }
+
+  .summary {
+    align-items: stretch;
+    text-align: left;
+    padding: space("lg");
+    gap: space("sm");
+
+    & > div {
+      flex-direction: column;
+      align-items: flex-start;
+
+      p {
+        font-size: font("md");
+      }
+
+      strong {
+        font-size: font("xl");
+      }
+    }
+  }
+}
+
+.warningText {
+  color: get-color("danger");
+  font-weight: 600;
+  font-size: font("sm");
+  margin-top: space("xs");
+  text-align: right;
+}

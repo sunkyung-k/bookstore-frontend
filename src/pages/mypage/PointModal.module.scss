@@ -1,0 +1,15 @@
+.modalBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: space("md");
+  padding: space("lg") space("xl");
+  text-align: center;
+
+  p {
+    font-size: font("lg");
+    color: get-color("gray-700");
+    line-height: 1.6;
+    font-weight: 500;
+  }
+}

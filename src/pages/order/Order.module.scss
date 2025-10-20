@@ -1,0 +1,19 @@
+.order {
+  .sectionTitle {
+    background-color: get-color("gray-100");
+    padding: space("md");
+    font-weight: 700;
+    font-size: font("lg");
+    color: get-color("dark");
+    border-top: 2px solid get-color("dark");
+    border-radius: radius("sm") radius("sm") 0 0;
+  }
+
+  .btnWrap {
+    margin-top: space("xl");
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: space("md");
+  }
+}

@@ -1,0 +1,29 @@
+@use "@/assets/scss/utils" as *;
+
+.form {
+  &-ipt {
+    width: 100%;
+    padding: 10px space("md");
+    border: 1px solid get-color("gray-200");
+    border-radius: radius("sm");
+    transition: all 0.2s;
+
+    &:focus {
+      border-color: get-color("primary");
+    }
+  }
+
+  &-label {
+    font-size: font("md");
+  }
+}
+
+.is-invalid {
+  border-color: get-color("danger");
+}
+
+.invalid-feedback {
+  margin-top: space("xs");
+  font-size: font("sm");
+  color: get-color("danger");
+}

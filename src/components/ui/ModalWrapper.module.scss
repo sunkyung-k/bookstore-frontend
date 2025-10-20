@@ -1,0 +1,81 @@
+@use "@/assets/scss/utils" as *;
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  z-index: 100;
+  padding: space("lg");
+  animation: fadeIn 0.25s ease;
+  overflow-y: auto;
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  margin: auto;
+  overflow-y: auto;
+  background: get-color("white");
+  border-radius: radius("xl");
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  animation: slideUp 0.3s ease-out;
+  max-width: 600px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: space("md") space("lg");
+  background: get-color("gray-100");
+  border-bottom: 1px solid get-color("gray-300");
+
+  .title {
+    font-size: font("xl");
+    font-weight: 700;
+    color: get-color("dark");
+    letter-spacing: -0.3px;
+  }
+
+  .closeBtn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: get-color("gray-600");
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      color: get-color("dark");
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.body {
+  padding: space("xl") space("xxl");
+  color: get-color("gray-700");
+  line-height: 1.7;
+  font-size: font("md");
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

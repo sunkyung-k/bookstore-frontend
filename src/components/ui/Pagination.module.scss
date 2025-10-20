@@ -1,0 +1,55 @@
+.paginationNav {
+  margin-top: space("lg");
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  gap: space("xs");
+  padding: 0;
+}
+
+.pageItem {
+  button {
+    border: 1px solid get-color("gray-300");
+    background-color: get-color("white");
+    color: get-color("gray-700");
+    border-radius: radius("sm");
+    padding: space("sm") space("md");
+    font-size: font("md");
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: get-color("primary");
+      color: get-color("white");
+      border-color: get-color("primary");
+      box-shadow: 0 3px 6px rgba(58, 94, 152, 0.25);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+      background-color: get-color("gray-100");
+      color: get-color("gray-400");
+    }
+  }
+
+  &.active button {
+    background-color: get-color("primary");
+    color: get-color("white");
+    border-color: get-color("primary");
+    box-shadow: 0 3px 6px rgba(58, 94, 152, 0.25);
+  }
+
+  &.disabled button {
+    opacity: 0.6;
+    cursor: not-allowed;
+    border-color: get-color("gray-200");
+    background-color: get-color("gray-50");
+    color: get-color("gray-400");
+  }
+}

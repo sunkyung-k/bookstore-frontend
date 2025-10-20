@@ -1,0 +1,45 @@
+@use "@/assets/scss/utils" as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  padding: 0 space("xl");
+  background-color: get-color("white");
+  border-bottom: 1px solid get-color("gray-200");
+  box-shadow: 0 2px 8px rgba(get-color("dark"), 0.05);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+
+  /* ✅ 스크롤 시 그림자 강조 (JS로 .scrolled 클래스 추가 시) */
+  &.scrolled {
+    box-shadow: 0 3px 12px rgba(get-color("dark"), 0.08);
+    border-color: get-color("gray-300");
+  }
+
+  /* ✅ 내부 컨테이너 (gnb 감싸는 구조) */
+  .inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media (max-width: bp("md")) {
+    height: 52px;
+    padding: 0 space("lg");
+  }
+
+  @media (max-width: bp("sm")) {
+    height: 48px;
+    padding: 0 space("md");
+    box-shadow: 0 1px 4px rgba(get-color("dark"), 0.08);
+  }
+}

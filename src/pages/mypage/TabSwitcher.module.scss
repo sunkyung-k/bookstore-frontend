@@ -1,0 +1,37 @@
+.tabs {
+  display: flex;
+  gap: space("xs");
+  margin-bottom: space("lg");
+  border-bottom: 1px solid get-color("gray-300");
+
+  button {
+    flex: 1;
+    max-width: 240px;
+    padding: space("md") 0;
+    background-color: get-color("gray-50");
+    border-radius: radius("sm") radius("sm") 0 0;
+    border: 1px solid transparent;
+    border-bottom: none;
+    font-size: font("md");
+    font-weight: 500;
+    color: get-color("gray-600");
+    transition: all 0.25s ease;
+
+    &:hover {
+      background-color: get-color("gray-100");
+      color: get-color("dark");
+    }
+
+    &.active {
+      background-color: get-color("white");
+      color: get-color("primary");
+      border-color: get-color("gray-300");
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+      border-bottom: 1px solid get-color("white");
+      margin-bottom: -1px;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+    }
+  }
+}

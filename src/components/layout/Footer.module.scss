@@ -1,0 +1,10 @@
+.footer {
+  padding: space("lg") space("md");
+  color: get-color("white");
+  background-color: get-color("dark");
+
+  p {
+    font-size: font("sm");
+    text-align: center;
+  }
+}

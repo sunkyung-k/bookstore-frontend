@@ -1,0 +1,142 @@
+@use "@/assets/scss/utils" as *;
+
+.gnb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: space("sm");
+  font-size: font("xl");
+  font-weight: 700;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: space("sm");
+    color: get-color("primary");
+    transition: color 0.25s ease;
+
+    &:hover {
+      color: rgba(get-color("primary"), 0.85);
+    }
+  }
+}
+
+.utill {
+  display: flex;
+  align-items: center;
+  gap: space("lg");
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: space("lg");
+
+  a {
+    position: relative;
+    color: get-color("gray-600");
+    font-size: font("md");
+    font-weight: 500;
+    transition: color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      color: get-color("primary");
+      transform: translateY(-1px);
+    }
+
+    svg {
+      display: block;
+      font-size: 20px;
+    }
+  }
+}
+
+.cnt {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: get-color("primary");
+  color: get-color("white");
+  font-size: font("xs");
+  font-weight: 600;
+  border-radius: radius("full");
+  padding: 2px 6px;
+  line-height: 1;
+  min-width: 16px;
+  text-align: center;
+}
+
+.userMenuBox {
+  display: flex;
+  align-items: center;
+  gap: space("sm");
+  font-size: font("sm");
+  color: get-color("gray-600");
+
+  .userMenu {
+    display: flex;
+    align-items: center;
+    gap: space("xs");
+
+    span {
+      color: get-color("gray-600");
+      font-size: font("sm");
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    button {
+      padding: 3px 8px;
+    }
+  }
+}
+
+@media (max-width: bp("md")) {
+  .logo {
+    font-size: font("md");
+  }
+
+  .menu {
+    gap: space("md");
+
+    a {
+      font-size: font("sm");
+    }
+  }
+}
+
+@media (max-width: bp("sm")) {
+  .gnb {
+    padding: 0 space("sm");
+    height: 52px;
+  }
+
+  .utill {
+    gap: space("sm");
+  }
+
+  .userMenuBox {
+    .userMenu {
+      flex-direction: row;
+      gap: 4px;
+
+      span {
+        display: none;
+      }
+    }
+  }
+}

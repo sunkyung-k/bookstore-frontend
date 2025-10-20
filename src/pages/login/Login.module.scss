@@ -1,0 +1,64 @@
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: get-color("gray-50");
+
+  &Box {
+    display: flex;
+    flex-direction: column;
+    gap: space("lg");
+    width: calc(100% - 40px);
+    max-width: 420px;
+    margin: 0 auto;
+    padding: space("xl");
+    border-radius: radius("xl");
+    background-color: get-color("white");
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.secTitle {
+  text-align: center;
+  font-size: font("xl");
+  font-weight: 700;
+  color: get-color("dark");
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: space("md");
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  gap: space("xs");
+
+  label {
+    font-size: font("sm");
+    font-weight: 600;
+    color: get-color("gray-700");
+  }
+
+  input {
+    padding: space("sm") space("md");
+    border: 1px solid get-color("gray-300");
+    border-radius: radius("sm");
+    font-size: font("md");
+    color: get-color("dark");
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: get-color("primary");
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(get-color("primary"), 0.15);
+    }
+
+    &::placeholder {
+      color: get-color("gray-400");
+    }
+  }
+}

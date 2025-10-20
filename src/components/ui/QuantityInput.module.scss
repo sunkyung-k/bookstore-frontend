@@ -1,0 +1,54 @@
+.qtyBox {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid get-color("gray-300");
+  border-radius: radius("md");
+  overflow: hidden;
+  background-color: get-color("white");
+
+  button {
+    background-color: get-color("gray-100");
+    width: 32px;
+    height: 32px;
+    font-size: font("md");
+    color: get-color("gray-700");
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: get-color("gray-200");
+      color: get-color("dark");
+    }
+
+    &:active {
+      background-color: get-color("gray-300");
+    }
+  }
+
+  span {
+    width: 48px;
+    text-align: center;
+    font-size: font("md");
+    font-weight: 600;
+    color: get-color("dark");
+  }
+}
+
+.disabled {
+  opacity: 0.6;
+
+  button {
+    cursor: not-allowed;
+    color: get-color("gray-400");
+    background-color: get-color("gray-100");
+
+    &:hover {
+      background-color: get-color("gray-100");
+      color: get-color("gray-400");
+    }
+  }
+
+  span {
+    color: get-color("gray-400");
+  }
+}
