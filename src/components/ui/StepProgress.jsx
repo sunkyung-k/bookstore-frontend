@@ -1,6 +1,3 @@
-// src/components/common/StepProgress.jsx
-import styles from "./StepProgress.module.scss";
-
 function StepProgress({ currentStep }) {
   const steps = [
     { id: "cart", label: "장바구니" },
@@ -9,21 +6,21 @@ function StepProgress({ currentStep }) {
   ];
 
   return (
-    <div className={styles.progress}>
+    <div className="progress">
       {steps.map((step, index) => (
         <div
           key={step.id}
-          className={`${styles.step} ${
+          className={`step ${
             step.id === currentStep
-              ? styles.active
+              ? "active"
               : index < steps.findIndex((s) => s.id === currentStep)
-              ? styles.done
+              ? "done"
               : ""
           }`}
         >
-          <span className={styles.circle}>{index + 1}</span>
-          <span className={styles.label}>{step.label}</span>
-          {index < steps.length - 1 && <span className={styles.arrow}>→</span>}
+          <span className="circle">{index + 1}</span>
+          <span className="label">{step.label}</span>
+          {index < steps.length - 1 && <span className="arrow">→</span>}
         </div>
       ))}
     </div>

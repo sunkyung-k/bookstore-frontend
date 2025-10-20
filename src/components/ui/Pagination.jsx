@@ -1,5 +1,4 @@
 import React, { useMemo, useState, useEffect } from "react";
-import styles from "./Pagination.module.scss";
 
 function Pagination({ page, totalRows, movePage, pagePerRows = 10, blockPerCount = 10 }) {
   const [visibleCount, setVisibleCount] = useState(blockPerCount);
@@ -39,10 +38,7 @@ function Pagination({ page, totalRows, movePage, pagePerRows = 10, blockPerCount
 
     // 처음
     pageHTML.push(
-      <li
-        key="first"
-        className={`${styles.pageItem} ${page === 0 ? styles.disabled : ""}`}
-      >
+      <li key="first" className={`pageItem ${page === 0 ? "disabled" : ""}`}>
         <button onClick={() => movePage(0)}>«</button>
       </li>
     );
@@ -50,10 +46,7 @@ function Pagination({ page, totalRows, movePage, pagePerRows = 10, blockPerCount
     // 이전
     const prevBlockPageNum = nowBlock * visibleCount - 1;
     pageHTML.push(
-      <li
-        key="prev"
-        className={`${styles.pageItem} ${nowBlock <= 0 ? styles.disabled : ""}`}
-      >
+      <li key="prev" className={`pageItem ${nowBlock <= 0 ? "disabled" : ""}`}>
         <button onClick={() => movePage(Math.max(prevBlockPageNum, 0))}>‹</button>
       </li>
     );
@@ -63,9 +56,9 @@ function Pagination({ page, totalRows, movePage, pagePerRows = 10, blockPerCount
       const pageNum = nowBlock * visibleCount + i;
       if (pageNum >= totalPage) break;
 
-      const isActive = page === pageNum ? styles.active : "";
+      const isActive = page === pageNum ? "active" : "";
       pageHTML.push(
-        <li key={pageNum} className={`${styles.pageItem} ${isActive}`}>
+        <li key={pageNum} className={`pageItem ${isActive}`}>
           <button onClick={() => movePage(pageNum)}>{pageNum + 1}</button>
         </li>
       );
@@ -76,9 +69,7 @@ function Pagination({ page, totalRows, movePage, pagePerRows = 10, blockPerCount
     pageHTML.push(
       <li
         key="next"
-        className={`${styles.pageItem} ${
-          nowBlock + 1 >= totalBlock ? styles.disabled : ""
-        }`}
+        className={`pageItem ${nowBlock + 1 >= totalBlock ? "disabled" : ""}`}
       >
         <button onClick={() => movePage(nextBlockPageNum)}>›</button>
       </li>
@@ -87,10 +78,7 @@ function Pagination({ page, totalRows, movePage, pagePerRows = 10, blockPerCount
     // 마지막
     const lastPageNum = totalPage - 1;
     pageHTML.push(
-      <li
-        key="last"
-        className={`${styles.pageItem} ${page === lastPageNum ? styles.disabled : ""}`}
-      >
+      <li key="last" className={`pageItem ${page === lastPageNum ? "disabled" : ""}`}>
         <button onClick={() => movePage(lastPageNum)}>»</button>
       </li>
     );
@@ -99,8 +87,8 @@ function Pagination({ page, totalRows, movePage, pagePerRows = 10, blockPerCount
   };
 
   return (
-    <nav className={styles.paginationNav} aria-label="page navigation">
-      <ul className={styles.pagination}>{renderPage()}</ul>
+    <nav className="paginationNav" aria-label="page navigation">
+      <ul className="pagination">{renderPage()}</ul>
     </nav>
   );
 }
