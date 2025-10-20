@@ -1,5 +1,3 @@
-import styles from "./QuantityInput.module.scss";
-
 function QuantityInput({ quantity, stock, onChange }) {
   const handleIncrease = () => {
     const newQty = quantity + 1;
@@ -22,7 +20,7 @@ function QuantityInput({ quantity, stock, onChange }) {
   const isSoldOut = stock <= 0;
 
   return (
-    <div className={`${styles.qtyBox} ${isSoldOut ? styles.disabled : ""}`}>
+    <div className={`qtyBox ${isSoldOut ? "disabled" : ""}`}>
       <button
         type="button"
         onClick={handleDecrease}
